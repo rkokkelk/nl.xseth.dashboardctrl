@@ -1,0 +1,22 @@
+{
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/.homeybuild": true
+    },
+    "files.watcherExclude": {
+        "**/node_modules": true,
+        "**/.homeybuild": true
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/.homeybuild": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/*.crswap": true
+    },
+    "svg.preview.background": "dark-transparent"
+
+}
