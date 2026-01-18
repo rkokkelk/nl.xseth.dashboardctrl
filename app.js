@@ -16,6 +16,15 @@ class DashboardCtrlApp extends Homey.App {
     this.homey.flow.getActionCard('loadUrl')
       .registerRunListener(args => args.device.loadUrl(args.url));
 
+    this.homey.flow.getActionCard('textToSpeech')
+      .registerRunListener(args => args.device.textToSpeech(args.message));
+
+    this.homey.flow.getActionCard('setOverlayMessage')
+      .registerRunListener(args => args.device.setOverlayMessage(args.message));
+
+    this.homey.flow.getActionCard('startScreensaver')
+      .registerRunListener(args => args.device.startScreensaver());
+
     this.homey.flow.getActionCard('showImage')
       .registerRunListener(args => args.device.showImage(args.color, args.droptoken));
 

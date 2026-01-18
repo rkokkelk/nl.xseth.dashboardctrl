@@ -236,6 +236,38 @@ class FullyBrowserDevice extends Homey.Device {
     util.checkStatus(res);
   }
 
+  async textToSpeech(message) {
+    /**
+     * Speak a message
+     */
+    const url = this.getAPIUrl('textToSpeech');
+    url.searchParams.set('text', message);
+
+    const res = await fetch(url);
+    util.checkStatus(res);
+  }
+
+  async setOverlayMessage(message) {
+    /**
+     * Show a message
+     */
+    const url = this.getAPIUrl('setOverlayMessage');
+    url.searchParams.set('text', message);
+
+    const res = await fetch(url);
+    util.checkStatus(res);
+  }
+
+  async startScreensaver() {
+    /**
+     * Start screensaver
+     */
+    const url = this.getAPIUrl('startScreensaver');
+
+    const res = await fetch(url);
+    util.checkStatus(res);
+  }
+
   async startApplication(pkg) {
     /**
      * Load start Url
