@@ -4,7 +4,9 @@
   "description": "Homey app for dashboard controller",
   "main": "app.js",
   "dependencies": {
+    "homey": "^3.8.1",
     "node-fetch": "^2.6.1",
+    "sharp": "^0.34.2",
     "tmp": "^0.2.1"
   },
   "devDependencies": {
