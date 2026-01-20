@@ -154,6 +154,55 @@
           "name": "color"
         }
       ]
+    },
+    {
+      "id": "textToSpeech",
+      "title": {
+        "en": "Speak message",
+        "nl": "Spreek bericht uit"
+      },
+      "titleFormatted": {
+        "en": "Speak: [[message]]",
+        "nl": "Spreek uit: [[message]]"
+      },
+      "args": [
+        {
+          "name": "message",
+          "type": "text",
+          "placeholder": {
+            "en": "Message",
+            "nl": "Bericht"
+          }
+        }
+      ]
+    },
+    {
+      "id": "setOverlayMessage",
+      "title": {
+        "en": "Show overlay message",
+        "nl": "Overlaybericht weergeven"
+      },
+      "titleFormatted": {
+        "en": "Show overlay message: [[message]]",
+        "nl": "Overlaybericht weergeven: [[message]]"
+      },
+      "args": [
+        {
+          "name": "message",
+          "type": "text",
+          "placeholder": {
+            "en": "Message",
+            "nl": "Bericht"
+          }
+        }
+      ]
+    },
+    {
+      "id": "startScreensaver",
+      "title": {
+        "en": "Start screensaver",
+        "nl": "Schermbeveiliging starten"
+      }
     }
   ]
 }
