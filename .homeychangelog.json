@@ -16,5 +16,8 @@
   },
   "0.4.0": {
     "en": "Add tags for running activities/apps in Kiosk browser"
+  },
+  "0.5.0": {
+    "en": "Added new action and trigger cards"
   }
 }
