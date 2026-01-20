@@ -47,14 +47,14 @@
   "flow": {
     "triggers": [
       {
-        "id": "activityChanged",
+        "id": "foregroundAppChanged",
         "title": {
-          "en": "Activity changed",
-          "nl": "Activiteit gewijzigd"
+          "en": "App changed",
+          "nl": "Applicatie gewijzigd"
         },
         "tokens": [
           {
-            "name": "app",
+            "name": "foregroundApp",
             "type": "string",
             "title": {
               "en": "App",
@@ -66,7 +66,47 @@
             }
           },
           {
-            "name": "activity",
+            "name": "foregroundActivity",
+            "type": "string",
+            "title": {
+              "en": "Activity",
+              "nl": "Activiteit"
+            },
+            "example": {
+              "en": "app.homey/.MainActivity",
+              "nl": "app.homey/.MainActivity"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=fully_browser"
+          }
+        ]
+      },
+      {
+        "id": "foregroundActivityChanged",
+        "title": {
+          "en": "Activity changed",
+          "nl": "Activiteit gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "foregroundApp",
+            "type": "string",
+            "title": {
+              "en": "App",
+              "nl": "App"
+            },
+            "example": {
+              "en": "app.homey",
+              "nl": "app.homey"
+            }
+          },
+          {
+            "name": "foregroundActivity",
             "type": "string",
             "title": {
               "en": "Activity",

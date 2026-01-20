@@ -6,6 +6,34 @@ const util = require('../../lib/util.js');
 
 class FullyBrowserDriver extends Homey.Driver {
 
+  async onInit () {
+    console.log('onInit Dashboardctrl driver')
+
+    this._triggers = {}
+    this.trigger_keys = [
+      'foregroundAppChanged',
+      'foregroundActivityChanged'
+    ]
+    for (const type of this.trigger_keys) {
+      this._triggers[type] = this.homey.flow.getDeviceTriggerCard(type)
+    }
+  }
+
+  trigger (key, device, tokens, state) {
+    /**
+     * Trigger a triggerCard
+     *
+     * @param {String} key: id of triggerCard to trigger
+     * @param {Device} device: device for which to trigger card
+     * @param {Dictionary} tokens: list of related tokens
+     * @param {Dictionary} state: current state of trigger
+     */
+
+    this._triggers[key]
+      .trigger(device, tokens, state)
+      .then(this.log)
+      .catch(this.error)
+  }
 
   async onPair(session) {
     let msg = this.homey.__('pair.unknownerror');

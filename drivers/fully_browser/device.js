@@ -39,10 +39,6 @@ class FullyBrowserDevice extends Homey.Device {
     this.registerCapabilityListener('onoff', this.turnOnOff.bind(this));
     this.registerCapabilityListener('dim', this.changeBrightness.bind(this));
 
-    // get trigger cards
-    this.foregroundAppTrigger = this.homey.flow.getTriggerCard("foregroundAppChanged");
-    this.foregroundActivityTrigger = this.homey.flow.getTriggerCard("foregroundActivityChanged");
-    
     if (this.hasCapability('foreground_app') === false) {
       await this.addCapability('foreground_app');
     }
@@ -129,22 +125,15 @@ class FullyBrowserDevice extends Homey.Device {
             this.setCapabilityValue(homey, value);
 
             const tokens = {
-              foregroundApp: this.getCapabilityValue('foregroundApp'),
-              foregroundActivity: this.getCapabilityValue('foregroundActivity')
+              foregroundApp: stats['foregroundApp'] || '',
+              foregroundActivity: stats['foregroundActivity'] || ''
             }
-            tokens[fully] = value;
 
             // ensure trigger is activited if necessary
-            if (fully === 'foregroundApp'){ 
-                this.foregroundAppTrigger.trigger(tokens)
-                .then(this.log)
-                .catch(this.error);
-
-            } else if (fully === 'foregroundActivity'){ 
-                this.foregroundActivityTrigger.trigger(tokens)
-                .then(this.log)
-                .catch(this.error);
-            }
+            if (fully === 'foregroundApp')
+              this.driver.trigger('foregroundAppChanged', this, tokens);
+            else if (fully === 'foregroundActivity')
+              this.driver.trigger('foregroundActivityChanged', this, tokens);
           }
         }
       })
