@@ -11,7 +11,10 @@
   "capabilities": [
     "onoff",
     "dim",
-    "measure_battery"
+    "measure_battery",
+    "foreground_app",
+    "foreground_activity"
+
   ],
   "energy": {
     "batteries": [

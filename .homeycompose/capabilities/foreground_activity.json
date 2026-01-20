@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "title": { 
+    "en": "Foreground Activity",
+    "nl": "Voorground Activiteit" 
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": null
+}

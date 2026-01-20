@@ -17,7 +17,7 @@
       "fully"
     ]
   },
-  "version": "0.3.3",
+  "version": "0.4.0",
   "compatibility": ">=5.0.0",
   "author": {
     "name": "Roy K",
@@ -171,7 +171,9 @@
       "capabilities": [
         "onoff",
         "dim",
-        "measure_battery"
+        "measure_battery",
+        "foreground_app",
+        "foreground_activity"
       ],
       "energy": {
         "batteries": [
@@ -265,5 +267,27 @@
       ],
       "id": "fully_browser"
     }
-  ]
+  ],
+  "capabilities": {
+    "foreground_activity": {
+      "type": "string",
+      "title": {
+        "en": "Foreground Activity",
+        "nl": "Voorground Activiteit"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null
+    },
+    "foreground_app": {
+      "type": "string",
+      "title": {
+        "en": "Foreground App",
+        "nl": "Voorground app"
+      },
+      "getable": true,
+      "setable": false,
+      "uiComponent": null
+    }
+  }
 }

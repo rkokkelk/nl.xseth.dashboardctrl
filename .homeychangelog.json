@@ -13,5 +13,8 @@
   },
   "0.3.3": {
     "en": "Remove debug code"
+  },
+  "0.4.0": {
+    "en": "Add tags for running activities/apps in Kiosk browser"
   }
 }

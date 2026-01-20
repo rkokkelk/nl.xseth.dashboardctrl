@@ -34,6 +34,15 @@ class FullyBrowserDevice extends Homey.Device {
     // Register capabilities
     this.registerCapabilityListener('onoff', this.turnOnOff.bind(this));
     this.registerCapabilityListener('dim', this.changeBrightness.bind(this));
+    
+
+    if (this.hasCapability('foreground_app') === false) {
+      await this.addCapability('foreground_app');
+    }
+
+    if (this.hasCapability('foreground_activity') === false) {
+      await this.addCapability('foreground_activity');
+    }
   }
 
   async setupImage() {
@@ -88,7 +97,9 @@ class FullyBrowserDevice extends Homey.Device {
     const deviceProperties = {
       screenOn: 'onoff',
       screenBrightness: 'dim',
-      batteryLevel: 'measure_battery'
+      batteryLevel: 'measure_battery',
+      foregroundApp: 'foreground_app',
+      foregroundActivity: 'foreground_activity'
     }
 
     this.getStatus()

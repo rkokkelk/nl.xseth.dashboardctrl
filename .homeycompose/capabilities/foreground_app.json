@@ -1,0 +1,10 @@
+{
+  "type": "string",
+  "title": { 
+    "en": "Foreground App",
+    "nl": "Voorground app" 
+  },
+  "getable": true,
+  "setable": false,
+  "uiComponent": null
+}
