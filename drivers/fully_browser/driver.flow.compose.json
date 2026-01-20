@@ -1,4 +1,72 @@
 {
+  "triggers": [
+    {
+      "id": "foregroundAppChanged",
+      "title": {
+        "en": "App changed",
+        "nl": "Applicatie gewijzigd"
+      },
+      "tokens": [
+        {
+          "name" : "foregroundApp",
+          "type": "string",
+          "title": {
+            "en": "App",
+            "nl": "App"
+          },
+          "example": {
+            "en": "app.homey",
+            "nl": "app.homey"
+          }
+        },
+        {
+          "name" : "foregroundActivity",
+          "type": "string",
+          "title": {
+            "en": "Activity",
+            "nl": "Activiteit"
+          },
+          "example": {
+            "en": "app.homey/.MainActivity",
+            "nl": "app.homey/.MainActivity"
+          }
+        }
+      ]
+    },
+    {
+      "id": "foregroundActivityChanged",
+      "title": {
+        "en": "Activity changed",
+        "nl": "Activiteit gewijzigd"
+      },
+      "tokens": [
+        {
+          "name" : "foregroundApp",
+          "type": "string",
+          "title": {
+            "en": "App",
+            "nl": "App"
+          },
+          "example": {
+            "en": "app.homey",
+            "nl": "app.homey"
+          }
+        },
+        {
+          "name" : "foregroundActivity",
+          "type": "string",
+          "title": {
+            "en": "Activity",
+            "nl": "Activiteit"
+          },
+          "example": {
+            "en": "app.homey/.MainActivity",
+            "nl": "app.homey/.MainActivity"
+          }
+        }
+      ]
+    }
+  ],
   "actions": [
     {
       "id": "dashboard",

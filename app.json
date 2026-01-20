@@ -45,6 +45,48 @@
     "local"
   ],
   "flow": {
+    "triggers": [
+      {
+        "id": "activityChanged",
+        "title": {
+          "en": "Activity changed",
+          "nl": "Activiteit gewijzigd"
+        },
+        "tokens": [
+          {
+            "name": "app",
+            "type": "string",
+            "title": {
+              "en": "App",
+              "nl": "App"
+            },
+            "example": {
+              "en": "app.homey",
+              "nl": "app.homey"
+            }
+          },
+          {
+            "name": "activity",
+            "type": "string",
+            "title": {
+              "en": "Activity",
+              "nl": "Activiteit"
+            },
+            "example": {
+              "en": "app.homey/.MainActivity",
+              "nl": "app.homey/.MainActivity"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=fully_browser"
+          }
+        ]
+      }
+    ],
     "actions": [
       {
         "id": "dashboard",

@@ -25,6 +25,10 @@ class FullyBrowserDevice extends Homey.Device {
     api.searchParams.set('password', settings.password);
     this.API = api;
 
+    // Set values
+    this.foregroundApp = ''
+    this.foregroundActivity	= ''
+
     // Setup polling of device
     this.polling = this.homey.setInterval(this.poll.bind(this), 1000 * settings.polling);
 
@@ -34,8 +38,11 @@ class FullyBrowserDevice extends Homey.Device {
     // Register capabilities
     this.registerCapabilityListener('onoff', this.turnOnOff.bind(this));
     this.registerCapabilityListener('dim', this.changeBrightness.bind(this));
-    
 
+    // get trigger cards
+    this.foregroundAppTrigger = this.homey.flow.getTriggerCard("foregroundAppChanged");
+    this.foregroundActivityTrigger = this.homey.flow.getTriggerCard("foregroundActivityChanged");
+    
     if (this.hasCapability('foreground_app') === false) {
       await this.addCapability('foreground_app');
     }
@@ -120,9 +127,26 @@ class FullyBrowserDevice extends Homey.Device {
           if (this.getCapabilityValue(homey) !== value) {
             this.log(`Setting [${homey}]: ${value}`);
             this.setCapabilityValue(homey, value);
+
+            const tokens = {
+              foregroundApp: this.getCapabilityValue('foregroundApp'),
+              foregroundActivity: this.getCapabilityValue('foregroundActivity')
+            }
+            tokens[fully] = value;
+
+            // ensure trigger is activited if necessary
+            if (fully === 'foregroundApp'){ 
+                this.foregroundAppTrigger.trigger(tokens)
+                .then(this.log)
+                .catch(this.error);
+
+            } else if (fully === 'foregroundActivity'){ 
+                this.foregroundActivityTrigger.trigger(tokens)
+                .then(this.log)
+                .catch(this.error);
+            }
           }
         }
-
       })
       .catch(error => {
         switch (error) {
