@@ -19,5 +19,8 @@
   },
   "0.5.0": {
     "en": "Added new action and trigger cards"
+  },
+  "0.5.1": {
+    "en": "Fixed small issues"
   }
 }
