@@ -22,5 +22,8 @@
   },
   "0.5.1": {
     "en": "Fixed small issues"
+  },
+  "0.5.2": {
+    "en": "Remove unnecessary dependencies"
   }
 }
